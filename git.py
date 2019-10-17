@@ -1,13 +1,13 @@
-import subprocess
+import subprocess, sys
 from git_user import GitUser
+from util import Util
 
 class Git: 
 
     @staticmethod
     def get_user_global(): 
-        name = subprocess.check_output(["git", "config", "--global", "user.name"]).decode(sys.stdout.encoding)
-        email = subprocess.check_output(["git", "config", "--global", "user.email"]).decode(sys.stdout.encoding)
-        signing_key = subprocess.check_output(["git", "config", "--global", "user.signingkey"]).decode(sys.stdout.encoding)
+        name = subprocess.run(["git", "config", "--global", "user.name"])        email = subprocess.run(["git", "config", "--global", "user.email"]).decode(sys.stdout.encoding)
+        signing_key = subprocess.run(["git", "config", "--global", "user.signingkey"]).decode(sys.stdout.encoding)
 
         git_user = GitUser(name, email, signing_key)
         return git_user;
