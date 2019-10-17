@@ -1,4 +1,5 @@
 import subprocess
+import git_user
 
 class Git: 
 
@@ -12,19 +13,25 @@ class Git:
 
 
     @staticmethod
-    def get_user_local:
+    def get_user_local():
+        return
 
     @staticmethod
-    def set_user_global:
+    def set_user_global():
+        return
 
     @staticmethod
-    def set_user_local: 
+    def set_user_local(): 
+        return
 
     @staticmethod
-    def clone:
+    def clone():
+        return
 
     @staticmethod
-    def revise:
+    def revise():
+        return
 
     @staticmethod
-    def build_revise_cmd:
+    def build_revise_cmd():
+        return

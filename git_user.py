@@ -4,7 +4,7 @@ class GitUser:
     """
     Data class to encapsulate a git user. 
     """
-    __init__(self, name, email, signing_key=None):
+    def __init__(self, name, email, signing_key=None):
         self._name = name
         self._email = email
         self._signing_key = signing_key
