@@ -1,5 +1,5 @@
 from git_user import GitUser
-from util import Util
+from ..util.util import Util
 
 class Git: 
 
