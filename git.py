@@ -23,7 +23,6 @@ class Git:
 
     @staticmethod
     def set_user_global(git_user, prefix_cmd=None):
-
         cmd = ["git", "config", "--global", "user.name"].append(git_user.name) \
             + ["git", "config", "--global", "user.email"].append(git_user.email)
         if(git_user.signing_key != None):
@@ -37,15 +36,15 @@ class Git:
 
     @staticmethod
     def set_user_local(): 
-        cmd = """git config --local user.name {} &&
-            git config --local user.email {}""".format(git_user.name, git_user.email)
-        if(git_user.signing_key != None): 
-            cmd += "git config --local user.signing_key {}".format(git_user.signing_key)
+        cmd = ["git", "config", "--local", "user.name"].append(git_user.name) \
+            + ["git", "config", "--local", "user.email"].append(git_user.email)
+        if(git_user.signing_key != None):
+            cmd += ["git", "config", "--local", "user.signingkey"].append(git_user.signing_key)
         if(prefix_cmd != None):
-            cmd += prefix_cmd + ' && ' + cmd
+            cmd = prefix_cmd.append("&&") + cmd
 
         # Finally after constructing the command, run
-        Util.exec(cmd.split())
+        Util.exec(cmd)
         return true;
 
     @staticmethod
