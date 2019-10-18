@@ -5,9 +5,9 @@ class Git:
 
     @staticmethod
     def get_user_global(): 
-        name = util.exec(["git", "config", "--global", "user.name"])
-        email = util.exec(["git", "config", "--global", "user.email"])
-        signing_key = util.exec(["git", "config", "--global", "user.signingkey"])
+        name = Util.exec(["git", "config", "--global", "user.name"])
+        email = Util.exec(["git", "config", "--global", "user.email"])
+        signing_key = Util.exec(["git", "config", "--global", "user.signingkey"])
 
         git_user = GitUser(name, email, signing_key)
         return git_user;
