@@ -31,12 +31,21 @@ class Git:
             cmd += prefix_cmd + ' && ' + cmd
 
         # Finally after constructing the command, run
-        Util.exec(cmd)
+        Util.exec(cmd.split())
         return true;
 
     @staticmethod
     def set_user_local(): 
-        return
+        cmd = """git config --local user.name {} &&
+            git config --local user.email {}""".format(git_user.name, git_user.email)
+        if(git_user.signing_key != None): 
+            cmd += "git config --local user.signing_key {}".format(git_user.signing_key)
+        if(prefix_cmd != None):
+            cmd += prefix_cmd + ' && ' + cmd
+
+        # Finally after constructing the command, run
+        Util.exec(cmd.split())
+        return true;
 
     @staticmethod
     def clone():
